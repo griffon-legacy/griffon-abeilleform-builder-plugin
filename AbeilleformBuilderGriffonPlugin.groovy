@@ -16,31 +16,45 @@
  * @author Jim Shingler
  */
 class AbeilleformBuilderGriffonPlugin {
-    // the plugin version
-    def version = "0.3"
+    String version = '0.4'
     // the version or versions of Griffon the plugin is designed for
-    def griffonVersion = '0.9.3 > *'
+    String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
-    def dependsOn = [:]
+    Map dependsOn = [:]
     // resources that are included in plugin packaging
-    def pluginIncludes = []
+    List pluginIncludes = []
     // the plugin license
-    def license = 'GNU Lesser Public License 2.1'
+    String license = 'GNU Lesser Public License 2.1'
     // Toolkit compatibility. No value means compatible with all
     // Valid values are: swing, javafx, swt, pivot, gtk
-    def toolkits = ['swing']
+    List toolkits = ['swing']
     // Platform compatibility. No value means compatible with all
     // Valid values are:
     // linux, linux64, windows, windows64, macosx, macosx64, solaris
-    def platforms = []
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-abeilleform-builder-plugin'
 
-    def author = "Jim Shingler"
-    def authorEmail = "ShinglerJim@gmail.com"
-    def title = "A Builder for Abeille Forms"
-    def description = '''\\
-This plugin installs the AbeilleFormsBuilder.  The builder helps integrate forms (".jfrm") into griffon
+    List authors = [
+        [
+            name: 'Jim Shingler',
+            email: 'ShinglerJim@gmail.com'
+        ]
+    ]
+    String title = 'A Builder for Abeille Forms'
+    // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
+    String description = '''
+Brings the [AbeilleFormBuilder][1] libraries (based on [Abeille Forms 2.1.0 M1][2]) into your Griffon application.
+
+Usage
+----
+AbeilleForm nodes are added by default to the root builder without a prefix, which means you can call them directly.
+Refer to the [builder's][2] page to known what nodes are available.
+
+
+[1]: http://griffon.codehaus.org/AbeilleFormBuilder
+[2]: http://abeille.dev.java.net
 '''
-
-    // URL to the plugin's documentation
-    def documentation = "http://griffon.codehaus.org/AbeilleformBuilder+Plugin"
 }

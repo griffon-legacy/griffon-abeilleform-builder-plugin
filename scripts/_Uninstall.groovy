@@ -16,14 +16,8 @@
  * @author Jim Shingler
  */
 
-boolean addonIsSet1
-builderConfig.each() { prefix, v ->
-    v.each { builder, views ->
-        addonIsSet1 = addonIsSet1 || 'griffon.builder.abeilleform.AbeilleFormBuilder' == builder
-    }
+def configText = """root.'griffon.builder.abeilleform.AbeilleFormBuilder'.view = '*'"""
+if(builderConfigFile.text.contains(configText)) {
+    println 'Removing AbeilleFormBuilder from Builder.groovy'
+    builderConfigFile.text -= configText
 }
-
-if(addonIsSet1) {
-    builderConfigFile.text = builderConfigFile.text - "root.'griffon.builder.abeilleform.AbeilleFormBuilder'.view = '*'\n"
-}
-

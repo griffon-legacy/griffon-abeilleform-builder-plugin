@@ -16,17 +16,10 @@
  * @author Jim Shingler
  */
 
-// check to see if we already have a AbeilleForm Builder
-boolean builderIsSet
-builderConfig.each() { prefix, v ->
-    v.each { builder, views ->
-        builderIsSet = builderIsSet || 'griffon.builder.abeilleform.AbeilleFormBuilder' == builder
-    }
-}
-
-if (!builderIsSet) {
+def configText = """root.'griffon.builder.abeilleform.AbeilleFormBuilder'.view = '*'"""
+if(!(builderConfigFile.text.contains(configText))) {
     println 'Adding AbeilleFormBuilder to Builder.groovy'
-    builderConfigFile.append('''
-root.'griffon.builder.abeilleform.AbeilleFormBuilder'.view = '*'
-''')
+    builderConfigFile.append("""
+$configText
+""")
 }

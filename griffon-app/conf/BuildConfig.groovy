@@ -2,15 +2,15 @@ griffon.project.dependency.resolution = {
     inherits("global")
     log "warn"
     repositories {
-        griffonPlugins()
         griffonHome()
-        griffonCentral()
         mavenRepo 'http://repository.codehaus.org' 
         mavenCentral()
-        flatDir name: 'abeilleformBuilderPluginLib', dirs: 'lib'
+        // pluginDirPath is only available when installed
+        String basePath = pluginDirPath? "${pluginDirPath}/" : ''
+        flatDir name: "abeilleformBuilderPluginLib", dirs: ["${basePath}lib"]
     }
     dependencies {
-        compile('org.codehaus.griffon:abeilleformbuilder:2.0')
+        compile('org.codehaus.griffon:abeilleformbuilder:3.0')
         compile 'com.jeta:formsrt:2.1.0M1'
     }
 }
@@ -23,4 +23,16 @@ griffon {
     }
 }
 
-griffon.jars.destDir='target/addon'
+log4j = {
+    // Example of changing the log pattern for the default console
+    // appender:
+    appenders {
+        console name: 'stdout', layout: pattern(conversionPattern: '%d [%t] %-5p %c - %m%n')
+    }
+
+    error 'org.codehaus.griffon',
+          'org.springframework',
+          'org.apache.karaf',
+          'groovyx.net'
+    warn  'griffon'
+}
