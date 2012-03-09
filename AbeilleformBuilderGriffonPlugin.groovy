@@ -51,7 +51,7 @@ Brings the [AbeilleFormBuilder][1] libraries (based on [Abeille Forms 2.1.0 M1][
 Usage
 ----
 AbeilleForm nodes are added by default to the root builder without a prefix, which means you can call them directly.
-Refer to the [builder's][2] page to known what nodes are available.
+Refer to the [builder's][1] page to known what nodes are available.
 
 
 [1]: http://griffon.codehaus.org/AbeilleFormBuilder
