@@ -16,11 +16,11 @@
  * @author Jim Shingler
  */
 class AbeilleformBuilderGriffonPlugin {
-    String version = '0.4'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = [:]
+    Map dependsOn = [swing: '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
@@ -55,6 +55,6 @@ Refer to the [builder's][1] page to known what nodes are available.
 
 
 [1]: http://griffon.codehaus.org/AbeilleFormBuilder
-[2]: http://abeille.dev.java.net
+[2]: http://java.net/projects/abeille
 '''
 }
